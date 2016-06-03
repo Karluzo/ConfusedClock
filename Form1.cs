@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,16 +42,16 @@ namespace WindowsFormsApplication1
             textBox9.Text = clockFace[9].ToString();
             textBox10.Text = clockFace[10].ToString();
             textBox11.Text = clockFace[11].ToString();
-            textBox0.BackColor = oldIndex == 0 ? Color.Yellow : newIndex == 0 ? Color.Green : Color.White;
+            textBox0.BackColor = oldIndex == 0 ? Color.Yellow : newIndex == 0 ? Color.LawnGreen: Color.LightBlue;
             textBox1.BackColor = Color.White;
             textBox2.BackColor = Color.White;
-            textBox3.BackColor = oldIndex == 3 ? Color.Yellow : newIndex == 3 ? Color.Green : Color.White;
+            textBox3.BackColor = oldIndex == 3 ? Color.Yellow : newIndex == 3 ? Color.LawnGreen : Color.LightBlue;
             textBox4.BackColor = Color.White;
             textBox5.BackColor = Color.White;
-            textBox6.BackColor = oldIndex == 6 ? Color.Yellow : newIndex == 6 ? Color.Green : Color.White;
+            textBox6.BackColor = oldIndex == 6 ? Color.Yellow : newIndex == 6 ? Color.LawnGreen : Color.LightBlue;
             textBox7.BackColor = Color.White;
             textBox8.BackColor = Color.White;
-            textBox9.BackColor = oldIndex == 9 ? Color.Yellow : newIndex == 9 ? Color.Green : Color.White;
+            textBox9.BackColor = oldIndex == 9 ? Color.Yellow : newIndex == 9 ? Color.LawnGreen : Color.LightBlue;
             textBox10.BackColor = Color.White;
             textBox11.BackColor = Color.White;
 
@@ -58,24 +59,31 @@ namespace WindowsFormsApplication1
             txtOldIndex.Text = oldIndex == null ? "---" : oldIndex.ToString();
             txtOldIndex.BackColor = oldIndex == null ? Color.White : Color.Yellow;
             txtNewIndex.Text = newIndex == null ? "---" : newIndex.ToString();
-            txtNewIndex.BackColor = newIndex == null ? Color.White : Color.Green;
+            txtNewIndex.BackColor = newIndex == null ? Color.White : Color.LawnGreen;
+            
         }
 
         private void SetIndex(byte index)
         {
+            bool pause = false;
             if (oldIndex == null)
                 oldIndex = index;
             else if (oldIndex != index && oldIndex.HasValue)
             {
                 newIndex = index;
+                RenderClockFace();
+                Application.DoEvents();
                 AllowedMove am = new AllowedMove(oldIndex.Value, newIndex.Value);
                 if (!PerformMove(am, chkForward.Checked))
                     MessageBox.Show("You are going in circles. Your move was cancelled.");
-
+                else
+                    Thread.Sleep(500);
+                
                 newIndex = null;
                 oldIndex = null;
             }
             RenderClockFace();
+            
         }
 
         public bool PerformMove(AllowedMove am, bool forward)
@@ -150,6 +158,21 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
             Restart();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
         
         
