@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace WindowsFormsApplication2
 {
     partial class Form1
     {
@@ -41,20 +41,16 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.chkForward = new System.Windows.Forms.CheckBox();
-            this.txtOldIndex = new System.Windows.Forms.TextBox();
-            this.txtNewIndex = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxC = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.clock;
+            this.pictureBox1.Image = global::WindowsFormsApplication2.Properties.Resources.clock;
             this.pictureBox1.Location = new System.Drawing.Point(37, 52);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(370, 360);
@@ -81,6 +77,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(51, 29);
             this.textBox1.TabIndex = 2;
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // textBox2
             // 
@@ -90,6 +87,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(51, 29);
             this.textBox2.TabIndex = 3;
+            this.textBox2.Click += new System.EventHandler(this.textBox2_Click);
             // 
             // textBox3
             // 
@@ -109,6 +107,7 @@
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(51, 29);
             this.textBox4.TabIndex = 5;
+            this.textBox4.Click += new System.EventHandler(this.textBox4_Click);
             // 
             // textBox5
             // 
@@ -118,6 +117,7 @@
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(51, 29);
             this.textBox5.TabIndex = 6;
+            this.textBox5.Click += new System.EventHandler(this.textBox5_Click);
             // 
             // textBox6
             // 
@@ -137,6 +137,7 @@
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(51, 29);
             this.textBox7.TabIndex = 8;
+            this.textBox7.Click += new System.EventHandler(this.textBox7_Click);
             // 
             // textBox8
             // 
@@ -146,6 +147,7 @@
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(51, 29);
             this.textBox8.TabIndex = 9;
+            this.textBox8.Click += new System.EventHandler(this.textBox8_Click);
             // 
             // textBox9
             // 
@@ -165,6 +167,7 @@
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(51, 29);
             this.textBox10.TabIndex = 11;
+            this.textBox10.Click += new System.EventHandler(this.textBox10_Click);
             // 
             // textBox11
             // 
@@ -174,39 +177,13 @@
             this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(51, 29);
             this.textBox11.TabIndex = 12;
-            // 
-            // chkForward
-            // 
-            this.chkForward.AutoSize = true;
-            this.chkForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.chkForward.Location = new System.Drawing.Point(164, 491);
-            this.chkForward.Name = "chkForward";
-            this.chkForward.Size = new System.Drawing.Size(118, 28);
-            this.chkForward.TabIndex = 13;
-            this.chkForward.Text = "ClockWise";
-            this.chkForward.UseVisualStyleBackColor = true;
-            // 
-            // txtOldIndex
-            // 
-            this.txtOldIndex.Location = new System.Drawing.Point(25, 497);
-            this.txtOldIndex.Name = "txtOldIndex";
-            this.txtOldIndex.ReadOnly = true;
-            this.txtOldIndex.Size = new System.Drawing.Size(100, 20);
-            this.txtOldIndex.TabIndex = 14;
-            // 
-            // txtNewIndex
-            // 
-            this.txtNewIndex.Location = new System.Drawing.Point(325, 497);
-            this.txtNewIndex.Name = "txtNewIndex";
-            this.txtNewIndex.ReadOnly = true;
-            this.txtNewIndex.Size = new System.Drawing.Size(100, 20);
-            this.txtNewIndex.TabIndex = 15;
+            this.textBox11.Click += new System.EventHandler(this.textBox11_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(25, 523);
+            this.button1.Location = new System.Drawing.Point(37, 432);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(191, 31);
+            this.button1.Size = new System.Drawing.Size(173, 31);
             this.button1.TabIndex = 16;
             this.button1.Text = "Undo";
             this.button1.UseVisualStyleBackColor = true;
@@ -214,7 +191,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(234, 525);
+            this.button2.Location = new System.Drawing.Point(216, 432);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(191, 31);
             this.button2.TabIndex = 17;
@@ -222,48 +199,34 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Select clockwise or conterclockwise movement direction. ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(35, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(317, 13);
+            this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 19;
-            this.label2.Text = "Then click on one blue number and then on another blue number.";
+            this.label2.Text = "Just click a number";
             // 
-            // label3
+            // textBoxC
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 449);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(366, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Only swap in pairs? Did I simplify too much? Are there other possible moves?";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.textBoxC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxC.Location = new System.Drawing.Point(195, 216);
+            this.textBoxC.Name = "textBoxC";
+            this.textBoxC.ReadOnly = true;
+            this.textBoxC.Size = new System.Drawing.Size(51, 29);
+            this.textBoxC.TabIndex = 20;
+            this.textBoxC.Click += new System.EventHandler(this.textBoxC_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 584);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(433, 482);
+            this.Controls.Add(this.textBoxC);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtNewIndex);
-            this.Controls.Add(this.txtOldIndex);
-            this.Controls.Add(this.chkForward);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
@@ -278,7 +241,7 @@
             this.Controls.Add(this.textBox0);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Confused clock";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -300,14 +263,10 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.CheckBox chkForward;
-        private System.Windows.Forms.TextBox txtOldIndex;
-        private System.Windows.Forms.TextBox txtNewIndex;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxC;
     }
 }
 
